@@ -23,8 +23,8 @@ app.get('/authenticate', (req, res) => {
 
 const request = require('request'); // "Request" library
 
-const client_id = '9921383d96874fd99c7747a000d97483'; // Your client id
-const client_secret = '57e54ccba90143178aa912eafa2616d8'; // Your secret
+const client_id = 'a0b2820d204d4c4e8a88b75a9ce09b34'; // Your client id
+const client_secret = '979d1cf2088a4142a1669ac299db74dc'; // Your secret
 
 // Request authentication from Spotify server
 const authOptions = {
