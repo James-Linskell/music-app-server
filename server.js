@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const request = require('request'); // "Request" library
 const path = require('path');
 const port = process.env.PORT || 5000;
 
@@ -20,8 +21,6 @@ app.get('/authenticate', (req, res) => {
         }
     });
 });
-
-const request = require('request'); // "Request" library
 
 const client_id = 'a0b2820d204d4c4e8a88b75a9ce09b34'; // Your client id
 const client_secret = '979d1cf2088a4142a1669ac299db74dc'; // Your secret
