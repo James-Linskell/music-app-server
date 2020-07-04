@@ -1,11 +1,9 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const port = process.env.PORT || 5000;
 
-app.use(express.static(__dirname + '/build'));
-
-// console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/authenticate', (req, res) => {
     let token = 'NO_TOKEN(SERVER)';
@@ -28,7 +26,7 @@ const request = require('request'); // "Request" library
 const client_id = 'a0b2820d204d4c4e8a88b75a9ce09b34'; // Your client id
 const client_secret = '979d1cf2088a4142a1669ac299db74dc'; // Your secret
 
-// Request authentication from Spotify server
+// Request options for authentication from Spotify server
 const authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     headers: {
@@ -39,3 +37,10 @@ const authOptions = {
     },
     json: true
 };
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build/index.html'));
+});
+
+// console.log that your server is up and running
+app.listen(port, () => console.log(`Listening on port ${port}`));
