@@ -3,7 +3,9 @@ const app = express();
 const request = require('request'); // "Request" library
 const path = require('path');
 const port = process.env.PORT || 5000;
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/authenticate', (req, res) => {
