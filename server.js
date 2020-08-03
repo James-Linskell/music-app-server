@@ -4,8 +4,11 @@ const request = require('request'); // "Request" library
 const path = require('path');
 const port = process.env.PORT || 5000;
 const cors = require('cors');
+const bodyParser = require('body-parser')
+const plSort = require('./SortPlaylistData');
 
 app.use(cors());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/authenticate', (req, res) => {
@@ -22,6 +25,12 @@ app.get('/authenticate', (req, res) => {
             });
         }
     });
+});
+
+app.post('/plSort', function(req, res) {
+    let response = plSort.generateScores(req.body);
+    res.json(response);
+    res.end();
 });
 
 const client_id = 'a0b2820d204d4c4e8a88b75a9ce09b34'; // Your client id
