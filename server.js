@@ -5,12 +5,13 @@ const path = require('path');
 const port = process.env.PORT || 5000;
 const cors = require('cors');
 const bodyParser = require('body-parser')
-const plSort = require('./SortPlaylistData');
+const plSort = require('./api/SortPlaylistData');
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
+//JUST TO TEST. REMOVE THIS GET
 app.get('/authenticate', (req, res) => {
     let token = 'NO_TOKEN(SERVER)';
     request.post(authOptions, function (error, response, body) {
@@ -27,7 +28,7 @@ app.get('/authenticate', (req, res) => {
     });
 });
 
-app.post('/plSort', function(req, res) {
+app.post('/api/plSort', function(req, res) {
     let response = plSort.generateScores(req.body);
     res.json(response);
     res.end();

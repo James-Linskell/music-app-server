@@ -1,6 +1,21 @@
-
+/**
+ * Takes a json of music feature data for all songs in a playlist as a parameter, and calculates a score to determine how well
+ * the first song in the list fits with the the following songs. Returns statistical information and generated descriptions
+ * of how well the song fits.
+ *
+ * @param music feature data
+ * @returns {{
+ * score: [*],
+ * featureInfo2: [],
+ * featureInfo1: [],
+ * simplify: {
+ *      fit: {sigmas: [], stDevs: [number, number, number]},
+ *      index: {danceIndex: number, valenceIndex: number, energyIndex: number},
+ *      numberSongs: number, datasets: {valence: number[], dance: number[], energy: number[]}},
+ *      featureInfoColour: []
+ * }}
+ */
 function generateScores(data) {
-
     let simplify = simplifyData(data);
     let fit = simplify.fit;
     let scores = [];
@@ -65,6 +80,18 @@ function generateScores(data) {
     return response;
 }
 
+/**
+ * Simplifies raw data obtained from spotify and pre-processes it for analysis. Calculates standard deviation and separates
+ * data into bins for visualisation using a histogram.
+ *
+ * @param raw data
+ * @returns {{
+ *      fit: {sigmas: [], stDevs: [number, number, number]},
+ *      index: {danceIndex: number, valenceIndex: number, energyIndex: number},
+ *      numberSongs: number,
+ *      datasets: {valence: number[], dance: number[], energy: number[]}
+ * }}
+ */
 function simplifyData(data) {
     let dance = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     let energy = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -230,11 +257,6 @@ function simplifyData(data) {
     let sigmas = [];
 
     for (let i = 0; i < 3; i++) {
-        if (stDevs[i] > 0.15) {
-            console.log("There is a high variance in the data.")
-        }
-
-        console.log("Standard deviation: " + stDevs[i]);
         if ((means[i] - stDevs[i]) <= values[i] && values[i] <= (means[i] + stDevs[i])) {
             sigmas[i] = 1;
         } else if ((means[i] - (2 * stDevs[i])) <= values[i] && values[i] <= (means[i] + (2 * stDevs[i]))) {
