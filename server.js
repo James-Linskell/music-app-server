@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 const plSort = require('./api/SortPlaylistData');
 const songSort = require('./api/SortSongData');
 const plFitWeb = require('./api/PlaylistFitWeb');
+const histogram = require('./api/GenerateHistogram');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -49,6 +50,12 @@ app.post('/api/songSort/sortFeatures', function(req, res) {
 
 app.post('/api/songSort/generateChart', function(req, res) {
     let response = songSort.generateCharts(req.body);
+    res.json(response);
+    res.end();
+});
+
+app.post('/api/plSort/generateHistogram', function(req, res) {
+    let response = histogram.generateHistogram(req.body);
     res.json(response);
     res.end();
 });

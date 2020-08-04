@@ -1,4 +1,5 @@
 function truncateTrackData(data) {
+
     let name = data.name;
     let album = data.album.name;
     let artist = data.artists[0].name;
