@@ -6,12 +6,13 @@ const port = process.env.PORT || 5000;
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const plSort = require('./api/SortPlaylistData');
+const songSort = require('./api/SortSongData');
+const plFitWeb = require('./api/PlaylistFitWeb');
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
-//JUST TO TEST. REMOVE THIS GET
 app.get('/authenticate', (req, res) => {
     let token = 'NO_TOKEN(SERVER)';
     request.post(authOptions, function (error, response, body) {
@@ -30,6 +31,30 @@ app.get('/authenticate', (req, res) => {
 
 app.post('/api/plSort', function(req, res) {
     let response = plSort.generateScores(req.body);
+    res.json(response);
+    res.end();
+});
+
+app.post('/api/songSort/truncate', function(req, res) {
+    let response = songSort.truncateTrackData(req.body);
+    res.json(response);
+    res.end();
+});
+
+app.post('/api/songSort/sortFeatures', function(req, res) {
+    let response = songSort.sortTrackFeatures(req.body);
+    res.json(response);
+    res.end();
+});
+
+app.post('/api/songSort/generateChart', function(req, res) {
+    let response = songSort.generateCharts(req.body);
+    res.json(response);
+    res.end();
+});
+
+app.post('/api/plFit/web', function(req, res) {
+    let response = plFitWeb.generateScore(req.body);
     res.json(response);
     res.end();
 });
