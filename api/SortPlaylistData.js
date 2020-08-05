@@ -70,12 +70,30 @@ function generateScores(data) {
     }
     let totalScore = [scores.reduce((a, b) => a + b, 0)];
 
+    let chartColour = "black";
+    if (totalScore > 10) {
+        chartColour = "#1E9600";
+    } else if (totalScore > 8) {
+        chartColour = "#77b300";
+    } else if (totalScore > 6) {
+        chartColour = "#bfff00";
+    } else if (totalScore > 5) {
+        chartColour = "#ffcc00";
+    } else if (totalScore > 3) {
+        chartColour = "#ff751a";
+    } else if (totalScore > 2) {
+        chartColour = "#cc2900";
+    } else {
+        chartColour = "#e60000";
+    }
+
     const response = {
         score: totalScore,
         featureInfo1: featureInfo1,
         featureInfo2: featureInfo2,
         featureInfoColour: featureInfoColour,
-        simplify: simplify
+        simplify: simplify,
+        chartColour: chartColour
     }
     return response;
 }
