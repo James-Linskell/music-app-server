@@ -140,7 +140,7 @@ function simplifyData(data) {
             dance[7]++;
         } else if (0.4 < track.danceability < 0.45) {
             dance[8]++;
-        } else if (0.45 < track.danceability < 0.55) {
+        } else if (0.45 < track.danceability < 0.5) {
             dance[9]++;
         } else if (0.5 < track.danceability < 0.55) {
             dance[10]++;
@@ -160,7 +160,7 @@ function simplifyData(data) {
             dance[17]++;
         } else if (0.9 < track.danceability < 0.95) {
             dance[18]++;
-        } else if (0.95 < track.danceability < 1.0) {
+        } else {
             dance[19]++;
         }
 
@@ -182,7 +182,7 @@ function simplifyData(data) {
             energy[7]++;
         } else if (0.4 < track.energy < 0.45) {
             energy[8]++;
-        } else if (0.45 < track.energy < 0.55) {
+        } else if (0.45 < track.energy < 0.5) {
             energy[9]++;
         } else if (0.5 < track.energy < 0.55) {
             energy[10]++;
@@ -202,7 +202,7 @@ function simplifyData(data) {
             energy[17]++;
         } else if (0.9 < track.energy < 0.95) {
             energy[18]++;
-        } else if (0.95 < track.energy < 1.0) {
+        } else {
             energy[19]++;
         }
 
@@ -224,7 +224,7 @@ function simplifyData(data) {
             valence[7]++;
         } else if (0.4 < track.valence < 0.45) {
             valence[8]++;
-        } else if (0.45 < track.valence < 0.55) {
+        } else if (0.45 < track.valence < 0.5) {
             valence[9]++;
         } else if (0.5 < track.valence < 0.55) {
             valence[10]++;
@@ -244,7 +244,7 @@ function simplifyData(data) {
             valence[17]++;
         } else if (0.9 < track.valence < 0.95) {
             valence[18]++;
-        } else if (0.95 < track.valence < 1.0) {
+        } else {
             valence[19]++;
         }
 
