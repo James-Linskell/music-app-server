@@ -90,7 +90,7 @@ function sortTrackFeatures(data) {
 
 function generateCharts(features) {
     const chartData = {
-        labels: ["Danceability", "Energy", "Happiness"],
+        labels: ["Danceability", "Energy", "Positivity"],
         datasets: [{
             label: "Song features",
             backgroundColor: 'darkred',

@@ -5,7 +5,7 @@ function generateHistogram(body) {
     let chartData = {
         labels: [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0],
         datasets: [{
-            label: "Song features",
+            label: "Playlist Songs (Your Song's Position is in Green)",
             backgroundColor: ["darkred", "darkred", "darkred", "darkred", "darkred", "darkred", "darkred", "darkred", "darkred", "darkred",
                 "darkred", "darkred", "darkred", "darkred", "darkred","darkred", "darkred", "darkred", "darkred", "darkred",],
             borderColor: 'rgb(255, 99, 132)',
@@ -39,10 +39,16 @@ function generateHistogram(body) {
             display: true,
             labels: {
                 fontColor: "white",
-            }
+            },
+	    position: "bottom",
         },
         scales: {
             yAxes: [{
+		scaleLabel: {
+		    display: true,
+                    fontColor: "white",
+		    labelString: "Number of Songs",
+		},
                 ticks: {
                     display: true,
                     fontColor: "white",
@@ -53,20 +59,17 @@ function generateHistogram(body) {
                 }
             }],
             xAxes: [{
-                display: false,
-                ticks: {
-                    max: 20
-                },
-            }, {
-                display: true,
-                ticks: {
+		scaleLabel: {
+		    display: true,
                     fontColor: "white",
-                    fontSize: 14,
-                    autoSkip: false,
-                    max: 10,
-                    stepSize: 1
-                }
-            }]
+		    labelString: "Feature Strength",
+		},
+                ticks: {
+                    max: 20,
+		    fontColor: "white",
+                },
+            },
+            ]
         },
     }
 
