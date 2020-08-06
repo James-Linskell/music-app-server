@@ -18,7 +18,7 @@ function generateHistogram(body) {
     chartData.datasets[0].backgroundColor[songIndex] = "darkgreen";
 
     const chartOptions = {
-        responsive: false,
+        responsive: true,
         tooltips: {
             callbacks: {
                 title: function (tooltipItem, data) {
@@ -36,7 +36,7 @@ function generateHistogram(body) {
             displayColors: false,
         },
         legend: {
-            display: false,
+            display: true,
             labels: {
                 fontColor: "white",
             }
