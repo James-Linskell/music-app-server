@@ -1,5 +1,7 @@
+/**
+ * Function which truncates track data to fit on Song Card in react app.
+ */
 function truncateTrackData(data) {
-
     let name = data.name;
     let album = data.album.name;
     let artist = data.artists[0].name;
@@ -29,6 +31,9 @@ function truncateTrackData(data) {
     return {name, album, artist, expl, artists}
 }
 
+/**
+ * Function which pre-processes track feature data.
+ */
 function sortTrackFeatures(data) {
     let live = "Maybe";
     if (data.liveness < 0.5) {
@@ -88,6 +93,9 @@ function sortTrackFeatures(data) {
     return {live, acoustic, instrumental, musicality, key};
 }
 
+/**
+ * Function which generates chart options for Spotify mood features chart.
+ */
 function generateCharts(features) {
     const chartData = {
         labels: ["Danceability", "Energy", "Positivity"],

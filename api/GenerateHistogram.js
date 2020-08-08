@@ -1,3 +1,6 @@
+/**
+ * Function which generates Spotify histogram options for Spotify mood features.
+ */
 function generateHistogram(body) {
     let data = body.data;
     let songIndex = body.songIndex;

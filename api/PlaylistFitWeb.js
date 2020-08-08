@@ -2,7 +2,6 @@
  * Generates options for rendering a bar chart for chart.js (for Reaact JS) with a single bar denoting the score of the song.
  * The bar changes colour (red => green) depending on how high the score is.
  * @param score
- * @returns {{chartOptions: {legend: {display: boolean, labels: {fontColor: string}}, scales: {yAxes: [{ticks: {display: boolean, fontColor: string}, gridLines: {drawBorder: boolean, display: boolean}}], xAxes: [{barPercentage: number, ticks: {min: number, max: number, display: boolean, stepSize: number, fontSize: number, fontColor: string}, display: boolean, gridLines: {drawBorder: boolean, display: boolean}}]}, tooltips: {titleFontColor: string, backgroundColor: string, titleFontSize: number, callbacks: {label: (function(*, *): *), title: (function(*, *): *)}, bodyFontColor: string, bodyFontSize: number, displayColors: boolean}}, chartData: {datasets: [{backgroundColor: string, borderColor: string, data: *, label: string}], labels: [string]}}}
  */
 function generateScore(score) {
         const chartData = {
