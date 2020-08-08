@@ -109,3 +109,5 @@ app.get('*', (req, res) => {
 
 // console.log that the server is up and running:
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+module.exports = app;
