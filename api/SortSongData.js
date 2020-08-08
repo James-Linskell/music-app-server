@@ -89,12 +89,11 @@ function sortTrackFeatures(data) {
     } else if (data.key === 11) {
         key = "B";
     }
-
     return {live, acoustic, instrumental, musicality, key};
 }
 
 /**
- * Function which generates chart options for Spotify mood features chart.
+ * Function which generates chart options and data for Spotify mood features chart.
  */
 function generateCharts(features) {
     const chartData = {
