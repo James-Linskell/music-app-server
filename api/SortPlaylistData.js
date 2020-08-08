@@ -99,8 +99,8 @@ function generateScores(data) {
 }
 
 /**
- * Simplifies raw data obtained from spotify and pre-processes it for analysis. Calculates standard deviation and separates
- * data into bins for visualisation using a histogram.
+ * Simplifies raw data obtained from Spotify and pre-processes it for analysis. Calculates standard deviation and separates
+ * data into bins for visualisation using a histogram. Private method called only by generateScores (not exported).
  *
  * @param raw data
  * @returns {{

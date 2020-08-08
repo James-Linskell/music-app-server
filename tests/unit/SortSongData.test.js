@@ -16,11 +16,14 @@ describe("truncateTrackData()", () => {
             }],
             explicit: true
         }
+        const invalidInputData = "test";
         // Tests:
         expect(SortSongData.truncateTrackData(inputData).name.length).toBe(33);
         expect(SortSongData.truncateTrackData(inputData).album.length).toBe(23);
         expect(SortSongData.truncateTrackData(inputData).artist.length).toBe(43);
         expect(SortSongData.truncateTrackData(inputData).expl).toBeTruthy();
+        // Invalid input:
+        expect(() => SortSongData.truncateTrackData(inputData).toThrow(Error));
     });
 });
 
@@ -45,10 +48,13 @@ describe("sortTrackFeatures()", () => {
             key: 1,
         }
         const inputDataCase3 = {
+            liveness: 0.1,
             acousticness: 0.4,
+            instrumentalness: 0.1,
             speechiness: 0.5,  // ie. musicality.
             key: 2
         }
+        const invalidInput = "test";
         // Test case 1:
         expect(SortSongData.sortTrackFeatures(inputDataCase1).live).toBe("Yes");
         expect(SortSongData.sortTrackFeatures(inputDataCase1).acoustic).toBe("Yes");
@@ -65,6 +71,8 @@ describe("sortTrackFeatures()", () => {
         expect(SortSongData.sortTrackFeatures(inputDataCase3).acoustic).toBe("Maybe");
         expect(SortSongData.sortTrackFeatures(inputDataCase3).musicality).toBe("Musical and spoken");
         expect(SortSongData.sortTrackFeatures(inputDataCase3).key).toBe("D");
+        // Invalid test:
+        expect(() => SortSongData.sortTrackFeatures(invalidInput).toThrow(Error));
     });
 });
 
