@@ -17,5 +17,6 @@ describe("generateHistogram()", () => {
             .toBe("darkgreen");     // Test for input index
         expect(GenerateHistogram.generateHistogram(inputData).chartData.datasets[0].backgroundColor[1])
             .toBe("darkred");     // Test for any other index
+        expect(() => GenerateHistogram.generateHistogram(null)).toThrow(TypeError);
     });
 });

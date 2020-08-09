@@ -42,5 +42,6 @@ describe("generateScores()", () => {
         expect(SortPlaylistData.generateScores(inputData).featureInfoColour).toBeTruthy();
         expect(SortPlaylistData.generateScores(inputData).simplify).toBeTruthy();
         expect(SortPlaylistData.generateScores(inputData).chartColour).toBeTruthy();
+        expect(() => SortPlaylistData.generateScores(null)).toThrow(TypeError);
     });
 });

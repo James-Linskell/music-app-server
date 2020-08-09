@@ -91,5 +91,6 @@ describe("generateCharts()", () => {
         expect(SortSongData.generateCharts(inputData).data.datasets[0].data[0]).toBe((inputData.danceability * 10).toFixed(2));
         expect(SortSongData.generateCharts(inputData).data.datasets[0].data[1]).toBe((inputData.energy * 10).toFixed(2));
         expect(SortSongData.generateCharts(inputData).data.datasets[0].data[2]).toBe((inputData.valence * 10).toFixed(2));
+        expect(() => SortSongData.generateCharts(null)).toThrow(TypeError);
     });
 });
