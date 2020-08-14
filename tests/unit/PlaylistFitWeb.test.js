@@ -1,4 +1,4 @@
-const PlaylistFitWeb = require('../../api/PlaylistFitWeb');
+const PlaylistFitWeb = require('../../api/GenerateScoreChart');
 
 /**
  * Jest test for PlaylistFitWeb.generateScore().

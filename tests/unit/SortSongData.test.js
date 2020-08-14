@@ -82,15 +82,14 @@ describe("sortTrackFeatures()", () => {
 describe("generateCharts()", () => {
     it("should return chart options and data for input mood feature data", () => {
         // Input data:
-        const inputData = {
-            danceability: 0.5,
-            energy: 0.4,
-            valence: 0.3
-        }
+        const inputData = {danceability: 0.5, energy: 0.4, valence: 0.3}
         // Tests:
-        expect(SortSongData.generateCharts(inputData).data.datasets[0].data[0]).toBe((inputData.danceability * 10).toFixed(2));
-        expect(SortSongData.generateCharts(inputData).data.datasets[0].data[1]).toBe((inputData.energy * 10).toFixed(2));
-        expect(SortSongData.generateCharts(inputData).data.datasets[0].data[2]).toBe((inputData.valence * 10).toFixed(2));
+        expect(SortSongData.generateCharts(inputData).data.datasets[0].data[0])
+            .toBe((inputData.danceability * 10).toFixed(2));
+        expect(SortSongData.generateCharts(inputData).data.datasets[0].data[1])
+            .toBe((inputData.energy * 10).toFixed(2));
+        expect(SortSongData.generateCharts(inputData).data.datasets[0].data[2])
+            .toBe((inputData.valence * 10).toFixed(2));
         expect(() => SortSongData.generateCharts(null)).toThrow(TypeError);
     });
 });

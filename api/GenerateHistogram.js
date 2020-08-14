@@ -1,5 +1,12 @@
 /**
+ * Contains functions for generating histogram options from input data.
+ * @module api/GenerateHistogram
+ */
+
+/**
  * Function which generates Spotify histogram options for Spotify mood features.
+ * @param {object} data - json containing an array of mood feature values and a song index {features, songIndex}
+ * @return {object} options - json containing chart data and options
  */
 function generateHistogram(body) {
     let data = body.data;

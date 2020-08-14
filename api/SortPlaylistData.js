@@ -1,21 +1,17 @@
 /**
+ * Contains functions for simplifying Spotify playlist data.
+ * @module api/SortPlaylistData
+ */
+
+/**
  * Takes a json of music feature data for all songs in a playlist as a parameter, and calculates a score to determine how well
  * the first song in the list fits with the the following songs. Returns statistical information and generated descriptions
  * of how well the song fits.
  *
- * @param music feature data
- * @returns {{
- * score: [*],
- * featureInfo2: [],
- * featureInfo1: [],
- * simplify: {
- *      fit: {sigmas: [], stDevs: [number, number, number]},
- *      index: {danceIndex: number, valenceIndex: number, energyIndex: number},
- *      numberSongs: number, datasets: {valence: number[], dance: number[], energy: number[]}},
- *      featureInfoColour: []
- * }}
+ * @param {object} data music feature data {audio_features}
+ * @returns {object} scores - score, featureInfo2, featureInfo1, simplify, featureInfoColour
  */
-function generateScores(data) {
+function generateFitScores(data) {
     let simplify = simplifyData(data);
     let fit = simplify.fit;
     let scores = [];
@@ -102,13 +98,8 @@ function generateScores(data) {
  * Simplifies raw data obtained from Spotify and pre-processes it for analysis. Calculates standard deviation and separates
  * data into bins for visualisation using a histogram. Private method called only by generateScores (not exported).
  *
- * @param raw data
- * @returns {{
- *      fit: {sigmas: [], stDevs: [number, number, number]},
- *      index: {danceIndex: number, valenceIndex: number, energyIndex: number},
- *      numberSongs: number,
- *      datasets: {valence: number[], dance: number[], energy: number[]}
- * }}
+ * @param {object} data - raw Spotify analysis data {danceability, energy, valence}
+ * @returns {object} data - simplified playlist data: fit, index, numberSongs, datasets
  */
 function simplifyData(data) {
     let dance = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -307,5 +298,5 @@ function simplifyData(data) {
 }
 
 module.exports = {
-    generateScores: generateScores
+    generateFitScores: generateFitScores
 }

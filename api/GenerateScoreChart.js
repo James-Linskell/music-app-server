@@ -1,9 +1,15 @@
 /**
+ * Contains functions for generating the final playlist analyser score options for Chart.js.
+ * @module api/GenerateScoreChart
+ */
+
+/**
  * Generates options for rendering a bar chart for chart.js (for Reaact JS) with a single bar denoting the score of the song.
  * The bar changes colour (red => green) depending on how high the score is.
- * @param score
+ * @param {int} score - the final score for the Playlist Analyser
+ * @return {object} options - json containing chart data and options
  */
-function generateScore(score) {
+function generateScoreChart(score) {
         const chartData = {
             labels: ["Score"],
             datasets: [{
@@ -86,5 +92,5 @@ function generateScore(score) {
 }
 
 module.exports = {
-    generateScore: generateScore
+    generateScoreChart: generateScoreChart
 }

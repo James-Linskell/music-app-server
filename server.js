@@ -7,7 +7,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser')
 const plSort = require('./api/SortPlaylistData');
 const songSort = require('./api/SortSongData');
-const plFitWeb = require('./api/PlaylistFitWeb');
+const plFitWeb = require('./api/GenerateScoreChart');
 const histogram = require('./api/GenerateHistogram');
 
 app.use(cors());
@@ -35,7 +35,7 @@ app.get('/authenticate', (req, res) => {
  * Endpoint for pre-processing playlist data.
  */
 app.post('/api/plSort', function(req, res) {
-    let response = plSort.generateScores(req.body);
+    let response = plSort.generateFitScores(req.body);
     res.json(response);
     res.end();
 });
@@ -80,7 +80,7 @@ app.post('/api/plSort/generateHistogram', function(req, res) {
  * Endpoint for pre-processing chart options for playlist fit score chart.
  */
 app.post('/api/plFit/web', function(req, res) {
-    let response = plFitWeb.generateScore(req.body);
+    let response = plFitWeb.generateScoreChart(req.body);
     res.json(response);
     res.end();
 });

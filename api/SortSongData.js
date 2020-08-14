@@ -1,5 +1,12 @@
 /**
+ * Contains functions for simplifying Spotify song data.
+ * @module api/SortSongData
+ */
+
+/**
  * Function which truncates track data to fit on Song Card in react app.
+ * @param {object} info - song information {name, album, artists, explicit}
+ * @return {object} info - truncated song information
  */
 function truncateTrackData(data) {
     let name = data.name;
@@ -33,6 +40,8 @@ function truncateTrackData(data) {
 
 /**
  * Function which pre-processes track feature data.
+ * @param {object} data - song analysis data {liveness, acousticness, instrumentalness, key}
+ * @return {object} data - processed song analysis data: live, acoustic, instrumental, musicality, key
  */
 function sortTrackFeatures(data) {
     let live = "Maybe";
@@ -94,6 +103,8 @@ function sortTrackFeatures(data) {
 
 /**
  * Function which generates chart options and data for Spotify mood features chart.
+ * @param {object} features - musical feature chart options {danceability, energy, valence}
+ * @return {object} data - json containing chart options and data
  */
 function generateCharts(features) {
     const chartData = {

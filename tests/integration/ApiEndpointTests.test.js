@@ -6,7 +6,8 @@ const app = require('../../server');
  */
 describe('GET Endpoints', () => {
     // Test for /authenticate endpoint:
-    it('respond with json containing Spotify client access token', async (done) => {
+    it('should respond with json containing Spotify client access token',
+        async (done) => {
         request(app)
             .get('/authenticate')
             .set('Accept', 'application/json')
