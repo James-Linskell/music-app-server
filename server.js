@@ -85,8 +85,8 @@ app.post('/api/plFit/web', function(req, res) {
     res.end();
 });
 
-const client_id = 'a0b2820d204d4c4e8a88b75a9ce09b34'; // My Spotify access client id
-const client_secret = '979d1cf2088a4142a1669ac299db74dc'; // My Spotify access client secret
+const client_id = 'REDACTED'; // My Spotify access client id
+const client_secret = 'REDACTED'; // My Spotify access client secret
 
 // Request options for authentication from Spotify server:
 const authOptions = {
